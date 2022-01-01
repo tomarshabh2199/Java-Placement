@@ -56,7 +56,7 @@ public static int totalPaths(int i, int j, int n, int m) {
 // n=4, m=2 
 
 public static int placeTiles(int n, int m){
-    
+
       //Base case
     if(n == m)
     {
@@ -75,6 +75,28 @@ public static int placeTiles(int n, int m){
     int horizontalPlacements = placeTiles(n-1, m);
 
     return verticalPlacements + horizontalPlacements;
+
+}
+
+// 4. Find the number of ways in which you can invite n people to your party, single or in pairs
+// n = 4
+// ways = 4
+
+public static int invitePeopleWays(int n){
+    
+    //Base case
+    if(n <= 1)
+    {
+        return 1;
+    }
+
+    // Single 
+    int ways1 = invitePeopleWays(n-1);
+
+    // Pair
+    int ways2 = (n-1) * invitePeopleWays(n-2);
+    
+    return ways1 + ways2;
 
 }
 
