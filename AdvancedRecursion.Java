@@ -26,11 +26,39 @@ public static void printPermutation(String str, String permutation)
     }
 }
 
+// 2. Count total paths in a maze to move from (0,0) to (n,m)
+// n=3, m=3 n*m (0,0) (2,2)
+// right and downward move only
+// total paths=6
+
+public static int totalPaths(int i, int j, int n, int m) {
+
+    //Base case
+
+    if(i == n && j == m){
+        return 0;
+    }
+
+    if(i== n-1 && j== m-1) return{
+        return 1;
+    }
+    //move downwards
+    int downPaths = totalPaths(i+1, j, n, m);
+
+    //move right
+    int rightPaths = totalPaths(i, j+1, n, m);
+
+    return downPaths + rightPaths;
+}
+
 
     public static void main(String[] args){
 
         String str = "abc";
         printPermutation(str, ""); //TC-O(n!)
+
+        int n=3, m=3;
+        System.out.println(totalPaths(0,0,n,m)); //TC-O(n*m)
 
     }
 }
