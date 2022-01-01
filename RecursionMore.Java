@@ -133,6 +133,27 @@ public static void removeDuplicate(String str, int idx, String newString) {
     }
 }
 
+// 7.Print all the Subsequences of string
+// "abc"->"a","b","c","ab","ac","bc","abc"
+
+public static void subSequence(String str, int idx, String newString){
+
+    //Base case
+    if(idx==str.length()){
+        System.out.println(newString);
+        return;
+    }
+
+    char currentChar=str.charAt(idx);
+
+    //to be 
+    subSequence(str, idx+1, newString+currentChar);
+
+    // not to be 
+    subsequence(str, idx+1, newString);
+
+}
+
 public static void main(string[] args){
         int n=3; //number of disks
         towerOfHanoi(n,"S","H","D"); //TC-O(2^n-1)
@@ -152,5 +173,8 @@ public static void main(string[] args){
 
         String str="abbccda";
         removeDuplicate(str, 0, ""); //TC-O(n)
+
+        String str="abc";
+        subSequence(str, 0, ""); //TC-O(n^2)
     }
 }
