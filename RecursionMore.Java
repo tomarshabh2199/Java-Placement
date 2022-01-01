@@ -184,6 +184,39 @@ public static void uniqueSubSequences(String str, int idx, String newString, Has
     uniqueSubSequences(str, idx+1, newString, set);
 }
 
+//9. Print keypad Combinations
+//"23"->"ad","ae","af","bd","be","bf","cd","ce","cf"
+//0->.
+//1->abc
+//2->def
+//3->ghi
+//4->jkl
+//5->mno
+//6->pqrs
+//7->tuv
+//8->wxyz
+//9->
+
+public static String[] keypad = {".","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
+
+public static void printCombination(String str, int idx, String combination)
+{
+    //Base case
+    if(idx == str.length())
+    {
+        System.out.println(combination);
+        return;
+    }
+    
+    char currentChar = str.charAt(idx);
+    String mapping = keypad[currentChar-'0'];
+
+    for(int i=0; i<mapping.length(); i++)
+    {
+        printCombination(str, idx+1, combination+mapping.charAt(i));
+    }
+}
+
 
 public static void main(string[] args){
         int n=3; //number of disks
@@ -210,5 +243,8 @@ public static void main(string[] args){
 
         HashSet<String>set=new HashSet<>();
         uniqueSubSequences(str, 0, "", set);
+
+        String str="23";
+        printCombination(str, 0, ""); //TC-O(n!)
     }
 }
