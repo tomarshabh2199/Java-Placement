@@ -100,6 +100,35 @@ public static int invitePeopleWays(int n){
 
 }
 
+// 5. Print all the subsets of a set of first n natural numbers.
+// n = 3 {1,2,3}
+// {1}, {2}, {3}, {1,2}, {1,3}, {2,3}, {1,2,3}
+
+public static void printSubset(ArrayList<Integer> subset, int n) {
+    for(int i=0; i<subset.size(); i++) {
+        System.out.println(subset.get(i) + " ");
+
+    }
+    System.out.println();
+}
+
+public static void findSubsets(int n, ArrayList<Integer> subset) {
+
+    //Base case
+    if(n == 0){
+        printSubset(subset);
+        return;
+    }
+
+    // add hoga
+    subset.add(n);
+    findSubsets(n , subset);
+
+    // add nahi hoga
+    subset.remove(subset.size()-1);
+    findSubsets(n-1 , subset);
+
+}
 
     public static void main(String[] args){
 
@@ -111,6 +140,13 @@ public static int invitePeopleWays(int n){
 
         int n=3, m=3;
         System.out.println(placeTiles(n,m)); //TC-O(n*m)
+
+        int n=4;
+        System.out.println(invitePeopleWays(n)); //TC-O(n)
+
+        int n=3;
+        ArrayList<Integer> subset = new ArrayList<Integer>();
+       findSubsets(n, subset); //TC-O(2^n)
 
     }
 }
