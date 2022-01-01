@@ -31,7 +31,7 @@ public static void reverseString(String str, int idx){
     reveraeString(str, idx-1);
 }
 
-//3. Find the 1st and last occurence of a character in a string
+//3.Find the 1st and last occurence of a character in a string
 //"abaacdaefaah"->"a" idx:0, idx:10
 
 public static int first=-1;
@@ -81,6 +81,32 @@ public static boolean isSorted(int[] arr, int idx){
 
 }
 
+//5. Move all 'x' to the end of the String
+//"abxcdex"->"abcdexx"
+
+public static void moveAllX(String str, int idx, int count, String newString){
+
+    //Base case
+    if(idx==str.length()){
+        for(int i=0; i<count; i++){
+            newString=newString+'x';
+        }
+        System.out.println(newString);
+        return;
+    }
+
+    char currentChar=str.charAt(idx);
+    if(currentChar=='x'){
+        count++;
+        moveAllX(str, idx+1, count, newString);
+    }
+
+    else{
+        newString += currentChar;
+        moveAllX(str, idx+1, count, newString);
+    }
+}
+
 
 public static void main(string[] args){
         int n=3; //number of disks
@@ -95,5 +121,8 @@ public static void main(string[] args){
 
         int[] arr={1,2,3,4,5};
        System.out.println(isSorted(arr,0)); //TC-O(n)
+
+        String str="abxcdex";
+         moveAllX(str, 0, 0, ""); //TC-O(n)
     }
 }
