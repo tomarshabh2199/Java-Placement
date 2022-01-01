@@ -5,10 +5,11 @@ import java.util.HashSet.*;
 class RecursionMore{
 
 //1.Tower of Hanoi
+
 public static void towerOfHanoi(int n, String src, String helper, String dest) {
 
     //Base Case
-    if(n==1){
+    if(n == 1){
         System.out.println("Move disk 1 from " + src + " to " + dest);
         return;
     }
@@ -21,9 +22,10 @@ public static void towerOfHanoi(int n, String src, String helper, String dest) {
 
  //2. Print a String in reverse order
  // "abcd"->"dcba"
+
 public static void reverseString(String str, int idx){
      //Base case 
-    if(idx==0){
+    if(idx == 0){
         System.out.println(str.charAt(idx));
         return;
     }
@@ -35,8 +37,8 @@ public static void reverseString(String str, int idx){
 //3.Find the 1st and last occurence of a character in a string
 //"abaacdaefaah"->"a" idx:0, idx:10
 
-public static int first=-1;
-public static int last=-1;
+public static int firs = -1;
+public static int last = -1;
 
 public static void firstandlastOccurence(String str, int idx, char element)
 {
@@ -48,10 +50,10 @@ public static void firstandlastOccurence(String str, int idx, char element)
         return;
     }
 
-    char currChar=str.charAt(idx);
-    if(currChar==element){
-        if(first==-1){
-            first=idx;
+    char currChar = str.charAt(idx);
+    if(currChar == element){
+        if(first == -1){
+            first = idx;
         }
         else{
             last=idx;
@@ -71,7 +73,7 @@ public static boolean isSorted(int[] arr, int idx){
         return true;
     }
 
-    if(arr[idx]<arr[idx+1]){
+    if(arr[idx] < arr[idx+1]){
     //array is sorted till now
         return isSorted(arr,idx+1);
     }
@@ -90,14 +92,14 @@ public static void moveAllX(String str, int idx, int count, String newString){
     //Base case
     if(idx==str.length()){
         for(int i=0; i<count; i++){
-            newString=newString+'x';
+            newString = newString + 'x';
         }
         System.out.println(newString);
         return;
     }
 
     char currentChar=str.charAt(idx);
-    if(currentChar=='x'){
+    if(currentChar == 'x'){
         count++;
         moveAllX(str, idx+1, count, newString);
     }
@@ -122,14 +124,14 @@ public static void removeDuplicate(String str, int idx, String newString) {
         return;
     }
     
-    char currentChar=str.charAt(idx);
+    char currentChar = str.charAt(idx);
     if(map[currentChar-'a']){
         removeDuplicate(str, idx+1, newString);
     }
 
     else{
         newString += currentChar;
-        map[currentChar-'a']=true;
+        map[currentChar-'a'] = true;
         removeDuplicate(str, idx+1, newString);
     }
 }
@@ -140,7 +142,7 @@ public static void removeDuplicate(String str, int idx, String newString) {
 public static void subSequence(String str, int idx, String newString){
 
     //Base case
-    if(idx==str.length()){
+    if(idx == str.length()){
         System.out.println(newString);
         return;
     }
@@ -168,9 +170,9 @@ public static void uniqueSubSequences(String str, int idx, String newString, Has
         }
 
         else{
-            System.out.println(newString);
-            set.add(newString);
-            return;
+                System.out.println(newString);
+                set.add(newString);
+                return;
         }
 
     }
@@ -217,6 +219,7 @@ public static void printCombination(String str, int idx, String combination)
     }
 }
 
+//Main Method
 
 public static void main(string[] args){
         int n=3; //number of disks
@@ -224,13 +227,13 @@ public static void main(string[] args){
 
 
         String str="abcd";  //Reverse a String
-        reveraeString(str, str.length-1);  //TC-O(n)
+        reverseString(str, str.length-1);  //TC-O(n)
 
         String str="abaacdaefaah";
         firstandlastOccurence(str, 0, 'a'); //TC-O(n)
 
         int[] arr={1,2,3,4,5};
-       System.out.println(isSorted(arr,0)); //TC-O(n)
+        System.out.println(isSorted(arr,0)); //TC-O(n)
 
         String str="abxcdex";
         moveAllX(str, 0, 0, ""); //TC-O(n)
