@@ -108,6 +108,31 @@ public static void moveAllX(String str, int idx, int count, String newString){
 }
 
 
+//6. Remove Duplicates in a String
+//"abbccda"->"abcd"
+
+public static boolean[] map=new boolean[26];
+
+public static void removeDuplicate(String str, int idx, String newString) {
+    
+    //Base case:
+    if(idx == str.length()){
+        System.out.println(newString);
+        return;
+    }
+    
+    char currentChar=str.charAt(idx);
+    if(map[currentChar-'a']){
+        removeDuplicate(str, idx+1, newString);
+    }
+
+    else{
+        newString += currentChar;
+        map[currentChar-'a']=true;
+        removeDuplicate(str, idx+1, newString);
+    }
+}
+
 public static void main(string[] args){
         int n=3; //number of disks
         towerOfHanoi(n,"S","H","D"); //TC-O(2^n-1)
@@ -123,6 +148,9 @@ public static void main(string[] args){
        System.out.println(isSorted(arr,0)); //TC-O(n)
 
         String str="abxcdex";
-         moveAllX(str, 0, 0, ""); //TC-O(n)
+        moveAllX(str, 0, 0, ""); //TC-O(n)
+
+        String str="abbccda";
+        removeDuplicate(str, 0, ""); //TC-O(n)
     }
 }
