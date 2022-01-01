@@ -3,7 +3,6 @@ import java.util.*;
 
 class AdvancedRecursion{
 
-
 // 1. Print all permuations of a string
 // "abc"->"abc", "acb", "bac", "bca", "cab", "cba" (all possible combination of letters)
 // "abcd"->"abcd", "abdc", "acbd", "acdb", "adbc", "adcb", "bacd", "badc", "bcad", "bcda", "bdac", "bdca", "cabd", "cadb", "cbad", "cbda", "cdab", "cdba", "dabc", "dacb", "dbac", "dbca", "dcab", "dcba"
@@ -51,6 +50,34 @@ public static int totalPaths(int i, int j, int n, int m) {
     return downPaths + rightPaths;
 }
 
+// 3. Place Tiles of size 1*m in a floor of size n*m 
+// such that no two tiles overlap
+// horizaontally place tiles and vertically place tiles
+// n=4, m=2 
+
+public static int placeTiles(int n, int m){
+    
+      //Base case
+    if(n == m)
+    {
+        return 2;
+    }
+
+    if(n < m)
+    {
+        return 1;
+    }
+
+    //vertcally place tiles
+    int verticalPlacements = placeTiles(n-m , m);
+
+    //horizontally place tiles
+    int horizontalPlacements = placeTiles(n-1, m);
+
+    return verticalPlacements + horizontalPlacements;
+
+}
+
 
     public static void main(String[] args){
 
@@ -59,6 +86,9 @@ public static int totalPaths(int i, int j, int n, int m) {
 
         int n=3, m=3;
         System.out.println(totalPaths(0,0,n,m)); //TC-O(n*m)
+
+        int n=3, m=3;
+        System.out.println(placeTiles(n,m)); //TC-O(n*m)
 
     }
 }
