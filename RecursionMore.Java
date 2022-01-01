@@ -59,6 +59,28 @@ public static void firstandlastOccurence(String str, int idx, char element)
     firstandlastOccurence(str, idx+1, element);
 }
 
+//4. Check if an array is sorted (Strictly Incresing)
+//{1,2,3,4,5}->true
+//{1,2,3,4,4}->false
+
+public static boolean isSorted(int[] arr, int idx){
+
+    //Base case
+    if(arr.length-1 == idx){
+        return true;
+    }
+
+    if(arr[idx]<arr[idx+1]){
+    //array is sorted till now
+        return isSorted(arr,idx+1);
+    }
+
+    else{
+        return true;
+    }
+
+}
+
 
 public static void main(string[] args){
         int n=3; //number of disks
@@ -71,5 +93,7 @@ public static void main(string[] args){
         String str="abaacdaefaah";
         firstandlastOccurence(str, 0, 'a'); //TC-O(n)
 
+        int[] arr={1,2,3,4,5};
+       System.out.println(isSorted(arr,0)); //TC-O(n)
     }
 }
