@@ -1,5 +1,6 @@
 import java.util.*;
 import java.io.*;
+import java.util.HashSet.*;
 
 class RecursionMore{
 
@@ -154,6 +155,36 @@ public static void subSequence(String str, int idx, String newString){
 
 }
 
+// 8. Print All Unique Subsequences
+// "aaa"->"a","aa","aaa"
+// use HashSet 
+
+public static void uniqueSubSequences(String str, int idx, String newString, HashSet<String> set){
+    
+    //Base Case
+    if(idx == str.length()){
+        if(set.contains(newString)){
+            return;
+        }
+
+        else{
+            System.out.println(newString);
+            set.add(newString);
+            return;
+        }
+
+    }
+
+    char currentChar=str.charAt(idx);
+
+    //to be 
+    uniqueSubSequences(str, idx+1, newString+currentChar, set);
+
+    // not to be 
+    uniqueSubSequences(str, idx+1, newString, set);
+}
+
+
 public static void main(string[] args){
         int n=3; //number of disks
         towerOfHanoi(n,"S","H","D"); //TC-O(2^n-1)
@@ -176,5 +207,8 @@ public static void main(string[] args){
 
         String str="abc";
         subSequence(str, 0, ""); //TC-O(n^2)
+
+        HashSet<String>set=new HashSet<>();
+        uniqueSubSequences(str, 0, "", set);
     }
 }
