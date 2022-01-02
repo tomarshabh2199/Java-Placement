@@ -33,6 +33,7 @@ class LinkedList{
 
     //Add last
     public void addLast(String data){
+
         //check head is null
         Node newNode =new Node(data);
         if(head == null){
@@ -66,6 +67,41 @@ class LinkedList{
         System.out.println("Null");
     }
 
+    //Delete first
+    public void deleteFirst(){
+        
+        //Base case
+        if(head == null){
+            System.out.println("The List is empty");
+            return;
+        }
+
+        head=head.next;
+    }
+
+    // Delete last
+    public void deleteLast(){
+
+        if(head == null){
+            System.out.println("The List is empty");
+            return;
+        }
+
+        //if only sigle node is available
+        if(head.next == null){
+            head = null;
+            return;
+        }
+
+        Node secondLast = head;
+        Node lastNode = head.next; // head.next = null -> lastNode= null
+        while(lastNode.next != null){ //null.next  =null throw error so we design another base case
+            lastNode= lastNode.next;
+            secondLast = secondLast.next;
+        }
+
+        secondLast.next = null;
+    }
 
     public static void main(String[] args){
 
@@ -79,6 +115,12 @@ class LinkedList{
         LL.printList();
 
         LL.addFirst("hello");
+        LL.printList();
+
+        LL.deleteFirst();
+        LL.printList();
+
+        LL.deleteLast();
         LL.printList();
 
     }
