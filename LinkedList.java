@@ -5,6 +5,11 @@ import java.io.*;
 class LinkedList{
 
     Node head;
+    private int size;
+
+    LinkedList(){
+        this.size=0;
+    }
     
     class Node{
         String data;
@@ -13,6 +18,7 @@ class LinkedList{
         Node(data){
             this.data = data;
             this.next = null;
+            size++;
         }
     }
 
@@ -76,7 +82,9 @@ class LinkedList{
             return;
         }
 
-        head=head.next;
+        size--;
+
+        head = head.next;
     }
 
     // Delete last
@@ -86,6 +94,9 @@ class LinkedList{
             System.out.println("The List is empty");
             return;
         }
+
+
+        size--;
 
         //if only sigle node is available
         if(head.next == null){
@@ -103,9 +114,17 @@ class LinkedList{
         secondLast.next = null;
     }
 
+
+
+    public int getSize(){
+        return size;
+    }
+
+
     public static void main(String[] args){
 
         LinkedList LL = new LinkedList();
+
         LL.addFirst("a");
         LL.addFirst("is");
 
@@ -122,6 +141,8 @@ class LinkedList{
 
         LL.deleteLast();
         LL.printList();
+
+        System.out.println(LL.getSize());
 
     }
 }
