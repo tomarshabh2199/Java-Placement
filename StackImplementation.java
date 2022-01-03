@@ -20,43 +20,45 @@ class StackImplementation{
         //stack ka top
         public static Node head;
 
-        public static boolean isEmpty(){
-            return head == null;
-        }
+        //isEmpty function
+    public static boolean isEmpty(){
+        return head == null; // return true and false
+       }
 
         //push opeartion
-        public static void push(int data){
+    public static void push(int data){
  
             Node newNode = new Node(data);
             
-           if(isEmpty()){
-             head= newNode;
-             return;
-           }
-
-           newNode.next = head;
-           head = newNode;
-        }
-        
-        public static int pop(){
-
-            if(isempty()){
-                System.out.println("Stack is empty");
-                return -1;
+            if(isEmpty()){
+            head = newNode;
+            return;
             }
 
-            int top= head.data;
-            head = head.next;
-            return top;
-        }
+        newNode.next = head;
+        head = newNode;
+    }
         
+    public static int pop(){
+
+        if( isempty() ){
+            System.out.println("Stack is empty");
+            return -1;
+        }
+
+        int top = head.data;
+        head = head.next; //update head after pop for further
+        return top;
+    }
+        
+        // Peek Operation
         public static int peek(){
-            if(isempty()){
+            if( isempty() ){
                 System.out.println("Stack is empty");
                 return -1;
             }
 
-            int top= head.data;
+            int top = head.data;
             return top;
         }
 
