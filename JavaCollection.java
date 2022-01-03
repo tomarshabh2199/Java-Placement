@@ -1,5 +1,7 @@
-import java.util.*:
+import java.util.*;
 import java.io.*;
+import java.util.Queue*;
+import java.util.LinkedList.*;
 
 class JavaCollection{
     public static void main(String[] args){
@@ -60,5 +62,38 @@ class JavaCollection{
             System.out.println(element);
         }
 
-        
+        Iterator<Integer> it = list.iterator();
+        while(it.hasNext()){
+            System.out.println(it.next());
+        }
+   
+        //Stack
+        Stack<Integer> stack = new Stack<>();
+        stack.push(1);
+        stack.push(2);
+        System.out.println(stack);
+
+        stack.peek();
+        System.out.println(stack.peek());
+        System.out.println(stack.pop());
+
+        //Queue
+        Queue<Integer> queue = new LinkedList<>();
+
+        //add element in queue
+        queue.offer(1);
+        queue.offer(2);
+        System.out.println(queue);
+
+        //remove element in queue
+        queue.poll();
+
+        //it remove element from the front and also give the remove element in result
+        System.out.println(queue.poll());
+
+        //give next top element
+        System.out.println(queue.peek());
+
+
+
 }
