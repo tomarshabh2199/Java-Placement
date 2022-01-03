@@ -12,9 +12,22 @@ class StackCollection{
             return;
         }
         
-        int top= s.pop();
+        int top = s.pop();
         pushAtBottom(data, s);
         s.push(top);
+    }
+
+    // 2. Reverse a stack
+    public static void reverse(Stack<Integer> s){
+
+        //Base Case
+        if(s.isEmpty()){
+            return;
+        }
+
+        int top= s.pop();
+        reverse(s);
+        pushAtBottom(top, s);
     }
 
     public static void main(String[] args){
@@ -24,6 +37,8 @@ class StackCollection{
         s.push(30);
 
         pushAtBottom(data, s);
+
+        reverse(s);
 
         while(!s.isEmpty()){
             System.out.println(s.peek());
