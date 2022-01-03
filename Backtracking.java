@@ -7,7 +7,7 @@ class Backtracking{
 
     public static void printPermutation(String str, String perm, int idx){
     
-        //Base case
+        // Base case
         if(str.length() == 0){
             System.out.println(perm);
             return;
@@ -39,14 +39,14 @@ class Backtracking{
             }
             //upper left corner
             int r= row;
-            for(int c= col; c>=0; && r>=0; c--; r--){
+            for(int c= col; c>=0 && r>=0; c--; r--){
                 if(board[r][c] == 'Q'){
                     return false;
                 }
             }
             //upper right corner
             r= row;
-            for(int c= col; c<board.length; && r>=0; c++, r--){
+            for(int c= col; c<board.length && r>=0; c++, r--){
                 if(board[r][c] == 'Q'){
                     return false;
                 }
@@ -54,7 +54,7 @@ class Backtracking{
 
             //lower left corner
             r= row;
-            for(int c= col; c>=0; && r<board.length; c--, r++){
+            for(int c= col; c>=0 && r<board.length; c--, r++){
                 if(board[r][c] == 'Q'){
                     return false;
                 }
@@ -62,7 +62,7 @@ class Backtracking{
 
             //lower right corner
             r= row;
-            for(int c= col; c<board.length; && r<board.length; c++, r++){
+            for(int c= col; c<board.length && r<board.length; c++, r++){
                 if(board[r][c] == 'Q'){
                     return false;
                 }
@@ -70,7 +70,7 @@ class Backtracking{
             return true;
         }
 
-        public void SaveBoard(char[][] board, List<List<String>> allBoards){
+        public void saveBoard(char[][] board, List<List<String>> allBoards){
             String row ="";
             List<String> newBoard = new ArrayList<>();
 
@@ -78,16 +78,16 @@ class Backtracking{
                 row=""; 
                 for(int j=0; j<board[0].length; j++){
                     if(board[i][j]==' Q')
-                        row += "Q";
+                        row += 'Q';
                     else
-                        row += ".";
+                        row += '.';
                 }
                 newBoard.add(row);
             }
             allBoards.add(newBoard);
         }
 
-        public void helper(char[][] board, <List<List<String>> allBoards, int col){
+        public void helper(char[][] board, List<List<String>> allBoards, int col){
 
             //Base case 
             if(col == board.length){
@@ -95,7 +95,7 @@ class Backtracking{
                 return;
             }
 
-            for(int row=0; row < board.length(); row++){
+            for(int row=0; row < board.length; row++){
                 if(isSafe(row,col,board)){
                     board[row][col]='Q';
                     helper(board, allBoards, col+1);
@@ -106,7 +106,7 @@ class Backtracking{
 
         public List<List<String>> solveNQueens(int n){
         List<List<String>> allBoards = new ArrayList<>();
-        char[][] board = new board[n][n];
+        char[][] board = new char[n][n];
         helper(board, allBoards, 0);
         return allBoards;
 
