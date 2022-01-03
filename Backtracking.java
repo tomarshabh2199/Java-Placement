@@ -109,7 +109,6 @@ class Backtracking{
         char[][] board = new char[n][n];
         helper(board, allBoards, 0);
         return allBoards;
-
     }
 
     public static void main(String[] args){
