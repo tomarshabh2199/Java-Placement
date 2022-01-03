@@ -90,7 +90,8 @@ class MoreWithLinkedList{
 
         Node firstHalfStart = head;
 
-        while(SecondHalfStart != null){
+        while(secondHalfStart != null){
+            //compare values
             if(firstHalfStart.data != secondHalfStart.data){
                 return false;
                 }
@@ -101,6 +102,27 @@ class MoreWithLinkedList{
         }
 
         return true;
+    }
+
+   // 3. Linked List Cycle
+    public boolean hasCycle(Node head)
+    {
+        //Both initally assign head
+       Node hare= head; //fast pointer
+       Node turtle = head; // slow pointer
+
+       //Base Condition
+        while( hare != null && hare.next != null ){
+
+             hare = hare.next.next; //fast pointer
+             turtle = turtle.next; //slow pointer
+ 
+             //when both get equal then there is a cycle
+            if(hare == turtle){
+                return true;
+            }
+        }
+        return false;
     }
 
     public static void main(String[] args){
