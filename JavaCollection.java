@@ -20,6 +20,9 @@ class JavaCollection{
         //add at specific index
         List<Integer> list= new ArrayList<>();
 
+        //List also implement Linked List and Array List in it.
+        //List<Integer> list = new LinkedList<>();
+
         //add the element at the end of list
         list.add(23);
         list.add(index:0, element:1);
@@ -66,7 +69,7 @@ class JavaCollection{
         while(it.hasNext()){
             System.out.println(it.next());
         }
-   
+
         //Stack
         Stack<Integer> stack = new Stack<>();
         stack.push(1);
@@ -93,6 +96,27 @@ class JavaCollection{
 
         //give next top element
         System.out.println(queue.peek());
+
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        //Priority queue implemet min heap internally
+        //can also write like this
+       // Queue<Integer> q = new PriorityQueue<>();
+
+       //it work like max heap now
+       // Queue<Integer> pq = new PriorityQueue<>(Comparator.reverseOrder());
+        pq.offer(1);
+        pq.poll(1);
+        System.out.println(pq);
+
+        System.out.println(pq.peek());
+
+        //Deque
+        ArrayDeque<Integer> deque = new ArrayDeque<>();
+        deque.add(1);
+        deque.offerFirst(2);
+        deque.offerLast(3);
+
+        System.out.println(deque);
 
 
 
