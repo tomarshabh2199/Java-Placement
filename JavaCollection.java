@@ -128,6 +128,16 @@ class JavaCollection{
         // No duplicates are allowed under this condition
 
         Set<Integer> hashSet = new HashSet<>();
+        //Set<Integer> hashSet2 = new LinkedHashSet<>();
+        //jis order me element fill kre hai us order me hi element milenge
+        
+        
+        // 1.Tree-Sort //implement binary search internally
+        // Set<Integer> hashSet3 = new TreeSet<>();
+
+
+        // hashset behind the seen uses equal method
+        // generate hash code for each operation
         hashSet.add(1);
         hashSet.add(2);
         hashSet.add(3);
@@ -144,7 +154,26 @@ class JavaCollection{
         System.out.println(hashSet.isEmpty());
 
         hashSet.clear();
+
+
+        //HashMap
+        Map<String, Integer> map= new HashMap<>();
+        map.put("John", 23);
+        map.put("Mary", 24);
+        map.put("Peter", 25);
         
+        //map also have unique entries 
+        // duplicates entries get override
+
+        if(map.containsKey("John")){
+            System.out.println(map.get("John"));
+        }
+
+        map.putIfAbsent("John", 30);
+        
+        System.out.println(map);
+
+
 
 
 }
