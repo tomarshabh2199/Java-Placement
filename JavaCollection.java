@@ -116,8 +116,35 @@ class JavaCollection{
         deque.offerFirst(2);
         deque.offerLast(3);
 
+
         System.out.println(deque);
 
+        deque.poll();
+        deque.pollFirst();
+        deque.pollLast();
+        System.out.println(deque);
+
+        //HashSet
+        // No duplicates are allowed under this condition
+
+        Set<Integer> hashSet = new HashSet<>();
+        hashSet.add(1);
+        hashSet.add(2);
+        hashSet.add(3);
+        //Order can be changed while re run but ensures unique
+        //Hash key
+        System.out.println(hashSet);
+
+        hashSet.remove(1);
+        System.out.println(hashSet);
+
+        hashSet.contains(1);
+        System.out.println(hashSet);
+
+        System.out.println(hashSet.isEmpty());
+
+        hashSet.clear();
+        
 
 
 }
