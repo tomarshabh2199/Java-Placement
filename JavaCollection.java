@@ -170,10 +170,44 @@ class JavaCollection{
         }
 
         map.putIfAbsent("John", 30);
-        
+
         System.out.println(map);
 
+        //Map Iteration
+        for(Map.Entry<String, Integer> entry : map.entrySet()){ 
+            System.out.println(entry.getKey() + " " + entry.getValue());        
+            System.out.println(entry);
+
+            for( String key : map.KeySet()){
+                System.out.println(key);
+
+            }
+
+            for(Integer value : map.values()){
+                System.out.println(value);
+            }
+
+            System.out.println(map.containsValue(value));
+            map.remove("John");
 
 
+            //Collection Class in Java
+            int[] numbers={1,2,3,4,5,6,7,8,9};
+            int index = Arrays.binarySearch(numbers, 3);
 
+            Arrays.sort(numbers);
+
+            Arrays.fill(numbers, 13);
+
+            System.out.println(Collections.min(list));
+            System.out.println(Collections.max(list));
+            System.out.println(Collections.frequency(list, 2));
+
+            Collections.sort(numbers);
+
+            Collections.sort(numbers, Collections.reverseOrder());
+            
+
+
+        }
 }
